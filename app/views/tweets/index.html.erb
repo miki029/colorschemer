@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="tweet.index.css">
+<h1>ColorSchemer</h1>
+<h3>Tweet一覧</h3>
+
+<%= form_tag({controller:"tweets",action:"index"}, method: :get, class: "search-form") do %>
+  <%= text_field_tag :search, nil, class: "search-input" %>
+  <%= submit_tag "検索する", class: "search-button" %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+
+<div class="tweets-container">
+
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+    
+  <% if t.image.attached? %>
+    <%= image_tag t.image, size: '250x200'%>
+  <% end %>
+
+  <% if t.user.image.attached? %>
+     <%= image_tag  t.user.image, size: '25x20'%>
+  <% end %>
+
+      <%= link_to t.user.name, user_path(t.user.id) %><br>
+      <%= t.color %><br>
+
+  <% if user_signed_in? %>
+      <% if current_user.already_liked?(t) %>
+          <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+            <i class="fa-solid fa-heart"></i><%= t.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
+            <i class="fa-solid fa-heart"></i><%= t.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+  <i class="fa-solid fa-heart"></i><%= t.likes.count %><br>
+  <% end %>
+      <%= t.created_at %><br>
+      
+      <% if t.tags.any? %>
+        <div class="tags">
+          <% t.tags.each do |tag| %>
+            <span class="tag">#<%= tag.name %></span>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <%= link_to "詳細へ", tweet_path(t.id), class:"button1" %>
+    <% if user_signed_in? && current_user.id == t.user_id %>
+      <%= link_to "編集する", edit_tweet_path(t.id), class:"button1" %>
+      <%= button_to "削除する", tweet_path(t.id), method: :delete, class:"delete" %>
+    <% end %>
+    
+      </div>
+  <% end %>
+
+  <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <% Tag.all.each do |t| %>
+        <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+  <% end %>
+
+  <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <%= text_field_tag :tag %>
+    <%= submit_tag 'タグを追加' %>
+  <% end %>
+
+</div>

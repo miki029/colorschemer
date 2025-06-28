@@ -1,0 +1,65 @@
+.blank1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 45px;
+    background-image: url("colorschemer4.png");
+        height: 500px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .blank2{
+    border: 2px solid rgb(130, 35, 35);
+    background-color: rgba(255, 255, 255, 0.1); /* 背景をうっすら白く */
+    backdrop-filter: blur(13px);                /* 背景ぼかし（これがキモ！） */    
+    text-align: center;
+    width: 50%;
+    color: rgb(130, 35, 35);
+    background: 575B46_1;
+    border-radius: 9px;
+    margin: 20px 5px;
+    padding: 20px 40px;
+    }
+    
+    
+    
+     .blank2 a{
+    color:#681d1d;
+    }
+    
+     .field label {
+    font-weight: 100;
+    font-size: 15px;
+    }
+    
+    
+    
+    .field input[type="email"] {
+    width: 200px;
+    height: 30px;
+    background: 87F02B_1;
+    border-radius: 10px;
+    border: 1px 060339_1 solid;
+    }
+    
+    .field input[type="password"] {
+    width: 200px;
+    height: 30px;
+    background: 33B887_1;
+    border-radius: 10px;
+    border: 1px 060339_1 solid;
+    }
+    
+     .actions input[type="submit"] {
+    width: 150px;
+    height: 30px;
+    background: F2A566_1;
+    border-radius: 10px;
+    border: 1px 060339_1 solid;
+    }
+    
+     .actions input[type="submit"]:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom,1C94EA_1,#5ba2f4f3);
+    }

@@ -1,0 +1,6 @@
+<link rel="stylesheet" href="tweet.edit.css">
+<%= form_for @tweet do |f| %>
+    <%= f.label :color %>
+    <%= f.text_field :color, :size => 140 %> 
+    <%= f.submit "編集する" %>
+  <% end %>

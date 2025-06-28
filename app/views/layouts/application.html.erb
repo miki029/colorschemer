@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Colorschemer</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartkick@5.0.1/dist/chartkick.min.js"></script>
+    <script src="https://kit.fontawesome.com/9f0cc77c98.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>  
+  </head>
+
+  <body>
+      <header>
+        <div class="header-list">
+        <ul>
+          <li><%= link_to "ログイン", tweets_path, class:"btn-vertical-border" %></li>
+          <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn-flat-stripe" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class:"btn-vertical-border" %></li>
+          <li><%= link_to "新規投稿", new_tweet_path, class:"btn-vertical-border" %></li>
+          <li><%= link_to "投稿一覧", tweets_path, class:"btn-vertical-border" %></li>
+          <li><%= link_to "配色診断", new_perfume_path, class:"btn-vertical-border" %></li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
+  </body>
+</html>

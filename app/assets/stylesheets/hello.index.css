@@ -1,0 +1,13 @@
+.colorschemer1{
+    background-image: url("colorschemer1.png");
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .colorschemer2{
+    background-image: url("colorschemer2.png");
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }

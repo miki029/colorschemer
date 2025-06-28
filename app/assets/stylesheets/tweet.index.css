@@ -1,0 +1,92 @@
+.tweets-container {
+  display: flex;
+  flex-wrap: wrap;       /* 折り返しを許可 */
+  justify-content: center;
+  gap: 20px;              /* 投稿間のスペース */
+  max-width: 1200px;      /* 全体の最大幅（お好みで調整） */
+  margin: 20px auto;
+
+}
+  h3 {
+    width: 100px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  .tweet {
+    width: 23%;             /* 100% ÷ 4列 = 25%、余白考慮して少し小さめに */
+    box-sizing: border-box;
+    border: 1px solid #00acee;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff8cf;
+  }
+  .main-box {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .time {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .delete{
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #0033cc;
+  }
+  .delete{
+    text-decoration: underline;
+    color: #002080;
+  }
+  .delete{
+    font-size: 98%;
+  }
+  .button1, .delete {
+    display: inline-block;
+    padding: 0.5em 1.2em;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    background-color: #ffe2bc;  
+    color: #b56727;
+    border: solid 2px #ffe2bc; 
+  }
+  .button1:hover, .delete:hover {
+    background-color: #ffe2bc;  
+    color: #b56727;
+    transform: translateY(-2px); /* ボタンが浮き上がる */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .button1:focus, .delete:focus {
+    outline: none; /* フォーカス時のボーダーを消す */
+  }
+  .button1:active, .delete:active {
+    background-color: #ffe2bc; 
+    color: #5A4E3A;  /* 文字色をダークにして、強調 */
+  }
+
+  .button1, .delete {
+    padding: 0.5em 1.2em;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .tag {
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    padding: 3px 8px;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #2f4335;
+  }

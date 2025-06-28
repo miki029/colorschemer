@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="tweet.new.css">
+<div class="shinkitoukou1">
+<div class="shinkitoukou2">
+<h3>新規投稿</h3>
+<%= form_for @tweet do |f| %>
+  <div class='form-group'>
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div class='form-check'>
+                <%= tag.label class: 'form-check-label' do %>
+                    <%= tag.check_box class: 'form-check-input' %>
+                    <%= tag.text %>
+                <% end %>
+            </div>
+        <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :画像 %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :ひとこと %>
+    <%= f.text_field :color, :size => 140 %>
+  </div>
+
+  <button type="submit" class="toukou">
+  <i class="fa fa-caret-right"></i> 投稿する
+</button>
+<% end %>
+
+</div>
